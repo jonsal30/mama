@@ -9,77 +9,67 @@
 <link rel="apple-touch-icon" href="icon.png">
 
 <style>
-  /* GLOBAL STYLES - Optimized for mobile reading */
-  body { font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #fafafa; margin: 0; padding: 20px; color: #333; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-  .app-container { max-width: 420px; margin: 0 auto; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(8px); border-radius: 30px; padding: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); border: 1px solid #f0f0f0; }
+  body { font-family: -apple-system, system-ui, sans-serif; background: #fafafa; margin: 0; padding: 15px; color: #333; }
+  .app-container { max-width: 420px; margin: 0 auto; background: white; border-radius: 30px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; }
   
-  /* APP HEADER - Circular photo and title */
-  .app-header { text-align: center; margin-bottom: 25px; }
-  .app-icon-main { width: 90px; height: 90px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 10px; object-fit: cover; }
-  .app-title { color: #8d6e63; font-size: 22px; font-weight: bold; margin: 0; }
-  .app-subtitle { color: #aaa; font-size: 13px; font-weight: 500; display: block; margin-top: -3px; }
+  /* Header Photo */
+  .app-header { text-align: center; margin-bottom: 20px; }
+  .app-icon-main { width: 100px; height: 100px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); object-fit: cover; }
   
-  /* HOUSTON TARGET MAP BUTTON */
-  .btn-map { display: block; background: #fdf2f2; color: #d32f2f; text-align: center; padding: 14px; border-radius: 15px; text-decoration: none; font-weight: bold; margin: 20px 0; font-size: 15px; border: 1px solid #ffcdd2; transition: all 0.2s ease; }
-  .btn-map:active { background: #ffcdd2; transform: scale(0.98); }
+  /* Widgets Area */
+  .widget-section { background: #fff8e1; border-radius: 20px; padding: 15px; margin-bottom: 20px; border: 1px solid #ffecb3; }
+  .verse-title { color: #8d6e63; font-weight: bold; display: block; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; }
+  #bg-votd-text { font-style: italic; font-size: 15px !important; line-height: 1.5 !important; color: #5d4037 !important; }
+  #bg-votd-ref { font-weight: bold !important; display: block; margin-top: 5px; color: #8d6e63 !important; text-decoration: none !important; }
 
-  /* SECTION TITLES */
-  h3.section-title { color: #8d6e63; margin-top: 35px; border-bottom: 2px solid #efebe9; padding-bottom: 10px; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-
-  /* PRODUCT CARDS - Cleaner, more vertical list style */
-  .product { display: flex; align-items: flex-start; background: #fff; border: 1px solid #f1f1f1; border-radius: 20px; padding: 15px; margin-bottom: 15px; }
-  .product img { width: 85px; height: 85px; object-fit: contain; margin-right: 15px; flex-shrink: 0; border-radius: 10px; background: white; }
+  /* Buttons & Layout */
+  .btn-map { display: block; background: #4caf50; color: white; text-align: center; padding: 14px; border-radius: 15px; text-decoration: none; font-weight: bold; margin-bottom: 20px; }
+  .product { display: flex; align-items: flex-start; background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 12px; margin-bottom: 15px; }
+  .product img { width: 80px; height: 80px; object-fit: contain; margin-right: 12px; }
   .p-info { flex: 1; }
-  .p-name { font-weight: bold; font-size: 16px; color: #2c3e50; display: block; }
-  .p-price { color: #2ecc71; font-weight: bold; font-size: 14px; margin-bottom: 8px; display: block; }
-  
-  /* THE 'WHY' BOX */
-  .why-box { background: #fafafa; border-radius: 10px; padding: 12px; font-size: 13px; color: #5d4037; border: 1px solid #f1f1f1; line-height: 1.6; }
-  .why-label { color: #c0392b; font-weight: bold; font-size: 11px; text-transform: uppercase; display: block; margin-bottom: 3px; letter-spacing: 0.5px; }
+  .p-name { font-weight: bold; font-size: 15px; display: block; }
+  .p-price { color: #2ecc71; font-weight: bold; font-size: 13px; }
+  .why-box { background: #fdf2f2; border-radius: 10px; padding: 10px; font-size: 12px; border-left: 3px solid #ff8a80; margin-top: 5px; }
 
-  /* ROUTINE TABLE - Clear AM/PM structure */
-  .routine-box { background: #fff; border: 1px solid #f1f1f1; border-radius: 20px; padding: 15px; margin-top: 20px; }
-  .routine { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; }
-  .routine th { text-align: left; padding-bottom: 15px; color: #aaa; text-transform: uppercase; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
-  .routine td { padding: 15px 0; border-top: 1px solid #f1f1f1; vertical-align: middle; }
-  .routine td.step { font-weight: bold; color: #2c3e50; width: 30px; text-align: center; }
-  .routine td.step span { background: #f0f0f0; padding: 4px 8px; border-radius: 50%; font-size: 12px; }
-  .sun { color: #e67e22; font-weight: 600; } 
-  .moon { color: #2980b9; font-weight: 600; }
-  .td-center { text-align: center; }
-
-  /* FOOTER - Signature and Tips */
-  .tip { background: #e3f2fd; padding: 15px; border-radius: 15px; font-size: 13px; border-left: 5px solid #2196f3; line-height: 1.6; margin-top: 25px; color: #1565c0; }
-  .footer { text-align: center; margin-top: 45px; padding-top: 25px; border-top: 2px solid #efebe9; }
-  .signature-icon { width: 60px; height: 60px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 10px; object-fit: cover; }
-  .footer-p { font-size: 12px; color: #aaa; margin: 0; font-weight: 500; }
+  /* Table */
+  .routine { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 12px; }
+  .routine th { background: #8d6e63; color: white; padding: 10px; border-radius: 5px; }
+  .routine td { padding: 10px; text-align: center; border-bottom: 1px solid #eee; }
 </style>
 </head>
 <body>
 
 <div class="app-container">
-  
   <div class="app-header">
-    <img src="icon.png" alt="Rutina Icon" class="app-icon-main">
-    <div class="app-title">Mi Rutina de Belleza</div>
-    <span class="app-subtitle">Hecha para Mamá con amor ❤️</span>
+    <img src="icon.png" alt="Icon" class="app-icon-main">
+    <h1 style="color: #8d6e63; font-size: 20px; margin: 10px 0 0 0;">Mi Rutina de Belleza</h1>
   </div>
-  
-  <a href="https://maps.apple.com/?address=8503+S+Sam+Houston+Pkwy+E,+Houston,+TX+77075" target="_blank" class="btn-map">
-    📍 Toca aquí para ir al Target (South Belt)
-  </a>
 
-  <h3 class="section-title">🛍️ Tu Lista de Compras</h3>
+  <div style="margin-bottom: 15px;">
+    <a class="weatherwidget-io" href="https://forecast7.com/es/29t76n95t37/houston/" data-label_1="HOUSTON" data-label_2="CLIMA" data-theme="pure" >HOUSTON CLIMA</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+  </div>
+
+  <div class="widget-section">
+    <span class="verse-title">📖 Palabra del Día</span>
+    <script src="https://www.biblegateway.com/usage/votd/v1/votd.js"></script>
+    <script>
+      BGVOTD.getHTML({"tag": "div", "version": "RVR1960"});
+    </script>
+  </div>
+
+  <a href="https://maps.apple.com/?address=8503+S+Sam+Houston+Pkwy+E,+Houston,+TX+77075" target="_blank" class="btn-map">
+    📍 Ir al Target (South Belt)
+  </a>
 
   <div class="product">
     <img src="cleanser.jpg" alt="CeraVe">
     <div class="p-info">
       <span class="p-name">CeraVe Foaming Cleanser</span>
-      <span class="p-price">$15.99 • Pasillo Cuidado Facial</span>
-      <div class="why-box">
-        <span class="why-label">¿Por qué usarlo?</span>
-        Limpia profundamente la grasita de la "Zona T" (frente/nariz) sin resecar tus mejillas. Es el balance perfecto para tu piel mixta.
-      </div>
+      <span class="p-price">$15.99</span>
+      <div class="why-box">Limpia la grasita de la frente sin resecar la piel.</div>
     </div>
   </div>
 
@@ -87,97 +77,28 @@
     <img src="niacinamide.jpg" alt="Niacinamide">
     <div class="p-info">
       <span class="p-name">The Ordinary Niacinamide</span>
-      <span class="p-price">$6.00 • Sección Ulta (inside Target)</span>
-      <div class="why-box">
-        <span class="why-label">¿Por qué usarlo?</span>
-        Controla el brillo durante el día y hace que los poros se vean más pequeños. Deja la piel lisa y uniforme.
-      </div>
+      <span class="p-price">$6.00</span>
+      <div class="why-box">Cierra los poros y quita el brillo del día.</div>
     </div>
   </div>
 
-  <div class="product">
-    <img src="matrixyl.jpg" alt="Matrixyl">
-    <div class="p-info">
-      <span class="p-name">The Ordinary Matrixyl</span>
-      <span class="p-price">$10.90 • Sección Ulta (inside Target)</span>
-      <div class="why-box">
-        <span class="why-label">¿Por qué usarlo?</span>
-        Ayuda a recuperar la firmeza y elasticidad. Combate líneas de expresión y arruguitas (poder antiedad).
-      </div>
-    </div>
-  </div>
+  <h3 style="color: #8d6e63; font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px;">📅 Tu Horario</h3>
+  <table class="routine">
+    <tr>
+      <th>#</th>
+      <th style="color: #e67e22;">☀️ Mañana</th>
+      <th style="color: #2980b9;">🌙 Noche</th>
+    </tr>
+    <tr><td>1</td><td>CeraVe</td><td>CeraVe</td></tr>
+    <tr><td>2</td><td>Niacinamide</td><td>Matrixyl</td></tr>
+    <tr><td>3</td><td>---</td><td>Retinol</td></tr>
+    <tr><td>4</td><td>Sunscreen</td><td>Azelaic Acid</td></tr>
+  </table>
 
-  <div class="product">
-    <img src="retinol.jpg" alt="Retinol">
-    <div class="p-info">
-      <span class="p-name">Good Molecules Retinol</span>
-      <span class="p-price">$8.00 • Sección Ulta/Walmart</span>
-      <div class="why-box">
-        <span class="why-label">¿Por qué usarlo?</span>
-        Suaviza arruguitas profundas y líneas finas mientras duermes. Es muy gentil, perfecto para empezar.
-      </div>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="sunscreen.jpg" alt="Sunscreen">
-    <div class="p-info">
-      <span class="p-name">Black Girl Sunscreen (Mate)</span>
-      <span class="p-price">$17.99 • Pasillo Protector Solar</span>
-      <div class="why-box">
-        <span class="why-label">¿Por qué usarlo?</span>
-        Protección total contra manchas solares. No deja la cara blanca ni pegajosa y te mantiene sin brillo bajo el sol de Houston.
-      </div>
-    </div>
-  </div>
-
-  <h3 class="section-title">📅 Tu Horario</h3>
-  
-  <div class="routine-box">
-    <table class="routine">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th class="sun td-center">☀️ MAÑANA</th>
-          <th class="moon td-center">🌙 NOCHE</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="step"><span>1</span></td>
-          <td class="td-center">Lavar con CeraVe</td>
-          <td class="td-center">Lavar con CeraVe</td>
-        </tr>
-        <tr>
-          <td class="step"><span>2</span></td>
-          <td class="td-center">The Ordinary Niacinamide</td>
-          <td class="td-center">The Ordinary Matrixyl</td>
-        </tr>
-        <tr>
-          <td class="step"><span>3</span></td>
-          <td class="td-center">---</td>
-          <td class="td-center"><strong>Good Molecules Retinol</strong></td>
-        </tr>
-        <tr>
-          <td class="step"><span>4</span></td>
-          <td class="td-center">BGS Sunscreen (Mate)</td>
-          <td class="td-center">The Ordinary Azelaic Acid</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="tip">
-    <strong>💡 Tip para el Estudio Bíblico:</strong> Si sientes brillo en la tarde, presiona un <em>Blotting Paper</em> (papelito) en tu nariz y frente. ¡Absorbe el aceite sin mover tu maquillaje! Estarás lista en segundos.
-  </div>
-
-  <div class="footer">
-    <img src="icon.png" alt="Signature" class="signature-icon">
-    <p class="footer-p">Diseñada con amor por tu hijo ❤️ Houston, TX</p>
+  <div style="text-align: center; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+    <p style="font-size: 12px; color: #aaa;">Hecho con todo mi amor ❤️</p>
   </div>
 </div>
-
-<p style="text-align:center; font-size:11px; color:#aaa; margin-top:20px; font-weight:500;">Un regalo especial para la mejor mamá</p>
 
 </body>
 </html>
