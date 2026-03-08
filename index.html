@@ -12,20 +12,22 @@
   body { font-family: -apple-system, system-ui, sans-serif; background: #fafafa; margin: 0; padding: 15px; color: #333; }
   .app-container { max-width: 420px; margin: 0 auto; background: white; border-radius: 30px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; }
   
-  /* Header Photo */
+  /* Header */
   .app-header { text-align: center; margin-bottom: 20px; }
   .app-icon-main { width: 100px; height: 100px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); object-fit: cover; }
   
-  /* Widgets Area */
+  /* Widget & Prayer Section */
   .widget-section { background: #fff8e1; border-radius: 20px; padding: 15px; margin-bottom: 20px; border: 1px solid #ffecb3; }
   .verse-title { color: #8d6e63; font-weight: bold; display: block; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; }
-  #bg-votd-text { font-style: italic; font-size: 15px !important; line-height: 1.5 !important; color: #5d4037 !important; }
-  #bg-votd-ref { font-weight: bold !important; display: block; margin-top: 5px; color: #8d6e63 !important; text-decoration: none !important; }
+  
+  .prayer-notes { width: 100%; border: 1px solid #ffecb3; border-radius: 10px; padding: 10px; font-family: inherit; font-size: 14px; background: #fffdf7; resize: none; box-sizing: border-box; }
 
-  /* Buttons & Layout */
-  .btn-map { display: block; background: #4caf50; color: white; text-align: center; padding: 14px; border-radius: 15px; text-decoration: none; font-weight: bold; margin-bottom: 20px; }
+  /* Buttons */
+  .btn-map { display: block; background: #d32f2f; color: white; text-align: center; padding: 14px; border-radius: 15px; text-decoration: none; font-weight: bold; margin-bottom: 20px; }
+
+  /* Products */
   .product { display: flex; align-items: flex-start; background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 12px; margin-bottom: 15px; }
-  .product img { width: 80px; height: 80px; object-fit: contain; margin-right: 12px; }
+  .product img { width: 80px; height: 80px; object-fit: contain; margin-right: 12px; background: #fff; border-radius: 8px; }
   .p-info { flex: 1; }
   .p-name { font-weight: bold; font-size: 15px; display: block; }
   .p-price { color: #2ecc71; font-weight: bold; font-size: 13px; }
@@ -33,7 +35,7 @@
 
   /* Table */
   .routine { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 12px; }
-  .routine th { background: #8d6e63; color: white; padding: 10px; border-radius: 5px; }
+  .routine th { background: #8d6e63; color: white; padding: 10px; }
   .routine td { padding: 10px; text-align: center; border-bottom: 1px solid #eee; }
 </style>
 </head>
@@ -55,9 +57,12 @@
   <div class="widget-section">
     <span class="verse-title">📖 Palabra del Día</span>
     <script src="https://www.biblegateway.com/usage/votd/v1/votd.js"></script>
-    <script>
-      BGVOTD.getHTML({"tag": "div", "version": "RVR1960"});
-    </script>
+    <script>BGVOTD.getHTML({"tag": "div", "version": "RVR1960"});</script>
+  </div>
+
+  <div class="widget-section" style="background: #e3f2fd; border-color: #bbdefb;">
+    <span class="verse-title" style="color: #1565c0;">🙏 Mis Notas de Oración</span>
+    <textarea id="notes" class="prayer-notes" rows="4" placeholder="Escribe tus oraciones aquí..."></textarea>
   </div>
 
   <a href="https://maps.apple.com/?address=8503+S+Sam+Houston+Pkwy+E,+Houston,+TX+77075" target="_blank" class="btn-map">
@@ -68,7 +73,7 @@
     <img src="cleanser.jpg" alt="CeraVe">
     <div class="p-info">
       <span class="p-name">CeraVe Foaming Cleanser</span>
-      <span class="p-price">$15.99</span>
+      <span class="p-price">$12.99 - $13.69</span>
       <div class="why-box">Limpia la grasita de la frente sin resecar la piel.</div>
     </div>
   </div>
@@ -76,29 +81,62 @@
   <div class="product">
     <img src="niacinamide.jpg" alt="Niacinamide">
     <div class="p-info">
-      <span class="p-name">The Ordinary Niacinamide</span>
+      <span class="p-name">The Ordinary Niacinamide 10%</span>
       <span class="p-price">$6.00</span>
-      <div class="why-box">Cierra los poros y quita el brillo del día.</div>
+      <div class="why-box">Controla el brillo y hace que los poros se vean más pequeños.</div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="matrixyl.jpg" alt="Matrixyl">
+    <div class="p-info">
+      <span class="p-name">The Ordinary Matrixyl 10%</span>
+      <span class="p-price">$10.90</span>
+      <div class="why-box">Ayuda con la firmeza y elasticidad de tu piel.</div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="retinol.jpg" alt="Retinol">
+    <div class="p-info">
+      <span class="p-name">Good Molecules Retinol Cream</span>
+      <span class="p-price">$7.99</span>
+      <div class="why-box">Gentil para reducir líneas de expresión mientras duermes.</div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="sunscreen.jpg" alt="Sunscreen">
+    <div class="p-info">
+      <span class="p-name">Black Girl Sunscreen (Matte)</span>
+      <span class="p-price">$17.99</span>
+      <div class="why-box">Protección SPF 45 total sin rastro blanco ni grasa.</div>
     </div>
   </div>
 
   <h3 style="color: #8d6e63; font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px;">📅 Tu Horario</h3>
   <table class="routine">
-    <tr>
-      <th>#</th>
-      <th style="color: #e67e22;">☀️ Mañana</th>
-      <th style="color: #2980b9;">🌙 Noche</th>
-    </tr>
-    <tr><td>1</td><td>CeraVe</td><td>CeraVe</td></tr>
+    <tr><th>#</th><th style="color: #e67e22;">☀️ Mañana</th><th style="color: #2980b9;">🌙 Noche</th></tr>
+    <tr><td>1</td><td>Lavar (CeraVe)</td><td>Lavar (CeraVe)</td></tr>
     <tr><td>2</td><td>Niacinamide</td><td>Matrixyl</td></tr>
     <tr><td>3</td><td>---</td><td>Retinol</td></tr>
     <tr><td>4</td><td>Sunscreen</td><td>Azelaic Acid</td></tr>
   </table>
 
-  <div style="text-align: center; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
-    <p style="font-size: 12px; color: #aaa;">Hecho con todo mi amor ❤️</p>
+  <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+    <img src="icon.png" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+    <p style="font-size: 12px; color: #aaa;">Hecho con amor por tu hijo ❤️</p>
   </div>
 </div>
+
+<script>
+  // Script to save prayer notes on her phone
+  const noteArea = document.getElementById('notes');
+  noteArea.value = localStorage.getItem('mamaNotes') || "";
+  noteArea.addEventListener('input', () => {
+    localStorage.setItem('mamaNotes', noteArea.value);
+  });
+</script>
 
 </body>
 </html>
