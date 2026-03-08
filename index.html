@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Mamá</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; background: #fdfaf6; margin: 0; padding: 15px; color: #333; }
+  .app-container { max-width: 400px; margin: 0 auto; background: white; border-radius: 25px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+  h1 { text-align: center; color: #8d6e63; font-size: 22px; margin-bottom: 5px; }
+  .btn-map { display: block; background: #4caf50; color: white; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: bold; margin: 15px 0; }
+  
+  /* Product Style */
+  .product { display: flex; align-items: center; background: #fff; border: 1px solid #eee; border-radius: 15px; padding: 10px; margin-bottom: 15px; }
+  .product img { width: 80px; height: 80px; object-fit: contain; margin-right: 15px; }
+  .p-info { flex: 1; }
+  .p-name { font-weight: bold; font-size: 15px; display: block; }
+  .p-price { color: #2ecc71; font-weight: bold; font-size: 14px; }
+  
+  .why-section { background: #fff5f5; border-radius: 10px; padding: 10px; margin-top: 8px; font-size: 13px; border-left: 4px solid #ff8a80; }
+  .why-tag { color: #d32f2f; font-weight: bold; font-size: 11px; text-transform: uppercase; display: block; }
+
+  /* Routine Table */
+  .routine { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 12px; overflow: hidden; border: 1px solid #eee; }
+  .routine th { background: #8d6e63; color: white; padding: 12px; font-size: 14px; }
+  .routine td { padding: 12px; text-align: center; border: 1px solid #eee; background: #fff; font-size: 13px; }
+  .sun { color: #f39c12; } .moon { color: #3498db; }
+
+  .tip { background: #e3f2fd; padding: 15px; border-radius: 15px; font-size: 13px; border-left: 5px solid #2196f3; }
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  <h1>✨ Guía de Belleza</h1>
+  
+  <a href="https://www.google.com/maps/search/?api=1&query=Target+8503+S+Sam+Houston+Pkwy+E+Houston+TX" target="_blank" class="btn-map">
+    📍 Ir al Target (South Belt)
+  </a>
+
+  <div class="product">
+    <img src="https://m.media-amazon.com/images/I/719S+6pXpJL._AC_SL1500_.jpg" alt="CeraVe">
+    <div class="p-info">
+      <span class="p-name">CeraVe Foaming Cleanser</span>
+      <span class="p-price">$15.99</span>
+      <div class="why-section">
+        <span class="why-tag">¿Por qué?</span>
+        Quita la grasita de la frente y nariz sin resecar la piel.
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://m.media-amazon.com/images/I/51pI-E9TzTL._AC_SL1000_.jpg" alt="Niacinamide">
+    <div class="p-info">
+      <span class="p-name">The Ordinary Niacinamide</span>
+      <span class="p-price">$6.00</span>
+      <div class="why-section">
+        <span class="why-tag">¿Por qué?</span>
+        Cierra los poros y evita el brillo durante el día.
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://m.media-amazon.com/images/I/61k1qfOAtSL._AC_SL1500_.jpg" alt="Matrixyl">
+    <div class="p-info">
+      <span class="p-name">The Ordinary Matrixyl</span>
+      <span class="p-price">$10.90</span>
+      <div class="why-section">
+        <span class="why-tag">¿Por qué?</span>
+        Ayuda a la firmeza y suaviza las líneas de expresión.
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://m.media-amazon.com/images/I/517i2Vv7xQL._AC_SL1000_.jpg" alt="Sunscreen">
+    <div class="p-info">
+      <span class="p-name">BGS Sunscreen (Matte)</span>
+      <span class="p-price">$17.99</span>
+      <div class="why-section">
+        <span class="why-tag">¿Por qué?</span>
+        Protege de manchas y no deja la cara blanca ni grasosa.
+      </div>
+    </div>
+  </div>
+
+  <h3>📅 Tu Rutina</h3>
+  <table class="routine">
+    <tr>
+      <th>Paso</th>
+      <th class="sun">☀️ Mañana</th>
+      <th class="moon">🌙 Noche</th>
+    </tr>
+    <tr>
+      <td><strong>1. Lavar</strong></td>
+      <td>CeraVe</td>
+      <td>CeraVe</td>
+    </tr>
+    <tr>
+      <td><strong>2. Tratar</strong></td>
+      <td>Niacinamide</td>
+      <td>Matrixyl</td>
+    </tr>
+    <tr>
+      <td><strong>3. Sellar</strong></td>
+      <td>Sunscreen</td>
+      <td>Acid Azelaic</td>
+    </tr>
+  </table>
+
+  <div class="tip">
+    <strong>💡 Tip de Estudio Bíblico:</strong> Usa tus "Blotting Papers" en la nariz y frente antes de salir para quitar el brillo al instante.
+  </div>
+
+  <p style="text-align:center; font-size:11px; color:#aaa; margin-top:20px;">Hecho por tu hijo con amor ❤️</p>
+</div>
+
+</body>
+</html>
