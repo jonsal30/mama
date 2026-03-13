@@ -12,29 +12,34 @@
   body { font-family: -apple-system, system-ui, sans-serif; background: #fafafa; margin: 0; padding: 10px; color: #333; }
   .app-container { max-width: 420px; margin: 0 auto; background: white; border-radius: 30px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; }
   
-  /* BRANDING SECTION: Centers your photo and title */
+  /* HEADER: Identity of the App */
   .app-header { text-align: center; margin-bottom: 10px; }
   .app-icon-main { width: 80px; height: 80px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); object-fit: cover; }
   
-  /* WIDGET BOXES: Styling for the daily verse and prayer notes */
-  .widget-section { background: #fff8e1; border-radius: 15px; padding: 12px; margin-bottom: 10px; border: 1px solid #ffecb3; }
+  /* WIDGETS: Bible Verse & Prayer Notes */
+  .widget-section { background: #fff8e1; border-radius: 15px; padding: 12px; margin-bottom: 10px; border: 1px solid #ffecb3; min-height: 80px; }
   .prayer-section { background: #e3f2fd; border-radius: 15px; padding: 12px; margin-bottom: 15px; border: 1px solid #bbdefb; }
-  .verse-title { color: #8d6e63; font-weight: bold; display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; text-align: center; letter-spacing: 1px;}
+  .verse-title { color: #8d6e63; font-weight: bold; display: block; margin-bottom: 8px; font-size: 12px; text-transform: uppercase; text-align: center; letter-spacing: 1px;}
+  
+  /* Bible Gateway specific overrides to ensure visibility */
+  #bg-votd-text { color: #5d4037 !important; font-style: italic !important; font-size: 15px !important; line-height: 1.4 !important; }
+  #bg-votd-ref { font-weight: bold !important; color: #8d6e63 !important; text-decoration: none !important; display: block; margin-top: 5px; }
+
   .prayer-notes { width: 100%; border: 1px solid #bbdefb; border-radius: 8px; padding: 8px; font-family: inherit; font-size: 14px; background: #fff; resize: none; box-sizing: border-box; }
 
-  /* STRATEGY BOXES: Rules for combination skin and Bible study refresh */
+  /* STRATEGY & BUTTONS */
   .strategy-box { background: #fdf2f2; border-radius: 12px; padding: 12px; margin-bottom: 15px; border-left: 4px solid #ff8a80; font-size: 13px; line-height: 1.4; }
   .strategy-title { font-weight: bold; color: #d32f2f; display: block; margin-bottom: 5px; text-transform: uppercase; font-size: 11px; }
-
-  /* BUTTONS & PRODUCT CARDS */
   .btn-map { display: block; background: #d32f2f; color: white; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-bottom: 15px; font-size: 14px;}
+
+  /* PRODUCTS */
   .product { display: flex; align-items: center; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 10px; margin-bottom: 8px; }
   .product img { width: 60px; height: 60px; object-fit: contain; margin-right: 10px; }
   .p-info { flex: 1; }
   .p-name { font-weight: bold; font-size: 13px; display: block; }
   .p-price { color: #2ecc71; font-weight: bold; font-size: 11px; }
 
-  /* ROUTINE TABLE: Final summary of steps */
+  /* TABLE */
   .routine { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 10px; }
   .routine th { background: #8d6e63; color: white; padding: 8px; }
   .routine td { padding: 8px; text-align: left; border-bottom: 1px solid #eee; }
@@ -49,28 +54,32 @@
     <h1 style="color: #8d6e63; font-size: 18px; margin: 5px 0;">Mi Guía de Belleza</h1>
   </div>
 
-  <div style="margin-bottom: 10px; overflow: hidden; border-radius: 15px;">
-    <iframe src="https://www.meteoblue.com/en/weather/widget/three/houston_united-states_4699066?geoloc=fixed&nocurrent=0&noforecast=1&days=4&tempunit=FAHRENHEIT&windunit=MILE_PER_HOUR&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" style="width: 100%; height: 180px;"></iframe>
+  <div style="margin-bottom: 15px; border-radius: 15px; overflow: hidden; border: 1px solid #eee;">
+    <iframe src="https://vtop.fio.no/widgets/weather/v1?lat=29.7604&lon=-95.3698&unit=us&lang=es" width="100%" height="100" frameborder="0" style="background: white;"></iframe>
   </div>
 
   <div class="widget-section">
     <span class="verse-title">📖 Palabra del Día</span>
-    <div id="votd-container" style="text-align: center; min-height: 50px; font-size: 14px; color: #5d4037;">
+    <div id="daily-verse-wrapper" style="text-align: center;">
       <script src="https://www.biblegateway.com/usage/votd/v1/votd.js"></script>
-      <script>BGVOTD.getHTML({ "tag": "div", "version": "RVR1960" });</script>
+      <script>
+        BGVOTD.getHTML({ "tag": "div", "version": "RVR1960" });
+      </script>
+      <noscript>
+        <a href="https://www.biblegateway.com/reading-plans/verse-of-the-day/next" target="_blank" style="font-size: 14px; color: #8d6e63;">Toca aquí para ver el versículo de hoy</a>
+      </noscript>
     </div>
   </div>
 
   <div class="prayer-section">
     <span class="verse-title" style="color: #1565c0;">🙏 Mis Notas de Oración</span>
-    <textarea id="notes" class="prayer-notes" rows="3" placeholder="Anota tus bendiciones y peticiones..."></textarea>
+    <textarea id="notes" class="prayer-notes" rows="3" placeholder="Mis peticiones de hoy..."></textarea>
   </div>
 
   <div class="strategy-box">
-    <span class="strategy-title">🌟 Las 3 Reglas de Oro</span>
-    • <b>Sándwich de Retinol:</b> Matrixyl → Retinol → Azelaic Acid (para piel sensible).<br>
-    • <b>Espera 60 Segundos:</b> Deja que la Niacinamide seque antes del protector solar.<br>
-    • <b>Forma de "L":</b> Banda de satín desde la frente a la nuca para evitar grasa del cabello.
+    <span class="strategy-title">🌟 Reglas para Piel Mixta</span>
+    • <b>Sándwich de Retinol:</b> Matrixyl → Retinol → Azelaic Acid.<br>
+    • <b>Espera 60s:</b> Deja que la Niacinamide seque antes del BGS Sunscreen.
   </div>
 
   <a href="https://maps.apple.com/?address=8503+S+Sam+Houston+Pkwy+E,+Houston,+TX+77075" target="_blank" class="btn-map">
@@ -78,33 +87,32 @@
   </a>
 
   <div class="product"><img src="cleanser.jpg"><div class="p-info"><span class="p-name">CeraVe Foaming Cleanser</span><span class="p-price">$15.99</span></div></div>
-  <div class="product"><img src="niacinamide.jpg"><div class="p-info"><span class="p-name">The Ordinary Niacinamide</span><span class="p-price">$6.00</span></div></div>
-  <div class="product"><img src="matrixyl.jpg"><div class="p-info"><span class="p-name">The Ordinary Matrixyl</span><span class="p-price">$10.90</span></div></div>
+  <div class="product"><img src="niacinamide.jpg"><div class="p-info"><span class="p-name">Ordinary Niacinamide</span><span class="p-price">$6.00</span></div></div>
+  <div class="product"><img src="matrixyl.jpg"><div class="p-info"><span class="p-name">Ordinary Matrixyl</span><span class="p-price">$10.90</span></div></div>
   <div class="product"><img src="retinol.jpg"><div class="p-info"><span class="p-name">Good Molecules Retinol</span><span class="p-price">$8.00</span></div></div>
   <div class="product"><img src="sunscreen.jpg"><div class="p-info"><span class="p-name">BGS Matte Sunscreen</span><span class="p-price">$17.99</span></div></div>
   <div class="product"><img src="azelaic.jpg"><div class="p-info"><span class="p-name">Ordinary Azelaic Acid</span><span class="p-price">$12.20</span></div></div>
 
   <div class="strategy-box" style="background: #e8f5e9; border-color: #4caf50;">
-    <span class="strategy-title" style="color: #2e7d32;">✨ Refresh para Estudio Bíblico</span>
-    Dab ligero con toallitas de Vitamina C en frente y nariz. Reaplica el <b>Matte Sunscreen</b> para que actúe como primer antes de tu maquillaje.
+    <span class="strategy-title" style="color: #2e7d32;">✨ Para el Estudio Bíblico</span>
+    Dab con toallitas de Vitamina C y reaplica <b>Matte Sunscreen</b> como primer.
   </div>
 
-  <h3 style="font-size: 14px; color: #8d6e63; margin: 15px 0 5px 0;">📅 Tu Horario</h3>
   <table class="routine">
-    <tr><th>Paso</th><th style="color: #e67e22;">☀️ Mañana</th><th style="color: #2980b9;">🌙 Noche</th></tr>
+    <tr><th>Paso</th><th>☀️ Mañana</th><th>🌙 Noche</th></tr>
     <tr><td>1. Lavar</td><td>CeraVe</td><td>CeraVe</td></tr>
     <tr><td>2. Tratar</td><td>Niacinamide</td><td>Matrixyl</td></tr>
-    <tr><td>3. Extra</td><td>---</td><td>Retinol (3x/semana)</td></tr>
+    <tr><td>3. Extra</td><td>---</td><td>Retinol</td></tr>
     <tr><td>4. Sellar</td><td>Sunscreen</td><td>Azelaic Acid</td></tr>
   </table>
 
   <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
-    <p style="font-size: 11px; color: #aaa;">Hecho con todo mi amor por tu hijo ❤️</p>
+    <p style="font-size: 11px; color: #aaa;">Con amor para Mamá ❤️</p>
   </div>
 </div>
 
 <script>
-  /* SAVING LOGIC: Keeps her notes persistent on her device */
+  /* Local Storage: Keeps notes saved even if she closes the browser */
   const noteArea = document.getElementById('notes');
   noteArea.value = localStorage.getItem('mamaNotes') || "";
   noteArea.addEventListener('input', () => {
