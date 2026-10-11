@@ -1,0 +1,18 @@
+{
+  "name": "My Health Ally",
+  "short_name": "Health Ally",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6fbfc",
+  "theme_color": "#f4fbfc",
+  "description": "A calm personal health organizer.",
+  "icons": [
+    {
+      "src": "./app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
