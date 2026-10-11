@@ -20,130 +20,28 @@
     <div class="brand"><b data-t="brand">My Health Ally</b><small data-t="tag">Better info • less worry • one step at a time</small></div>
     <button id="langBtn" class="lang" aria-label="Change language">ES</button>
   </header>
-
-  <section class="hero">
-    <h1 data-t="hello">Hi, Mom. You’ve got this. 💙</h1>
-    <p data-t="hero">A calm place to understand medicines, check new ideas before trying them, track symptoms, and bring better questions to your health team.</p>
-    <div class="soft" data-t="notalone">No TikTok rabbit hole required.</div>
-  </section>
-
-  <div class="safety"><strong data-t="safetyTitle">Important:</strong>
-    <span data-t="safety">This app organizes information. It does not replace the directions on your prescription label or instructions from your doctor or pharmacist.</span>
-  </div>
-
+  <section class="hero"><h1 data-t="hello">Hi, Mom. You’ve got this. 💙</h1><p data-t="hero">A calm place to understand medicines, check new ideas before trying them, track symptoms, and bring better questions to your health team.</p><div class="soft" data-t="notalone">No TikTok rabbit hole required.</div></section>
+  <div class="safety"><strong data-t="safetyTitle">Important:</strong> <span data-t="safety">This app organizes information. It does not replace the directions on your prescription label or instructions from your doctor or pharmacist.</span></div>
   <section class="quick">
     <button class="qcard" onclick="go('meds')"><span class="ico">💊</span><b data-t="qMeds">My medicines</b><small data-t="qMedsSub">What they’re for, common effects, and what to confirm.</small></button>
     <button class="qcard" onclick="go('science')"><span class="ico">📖</span><b data-t="qScience">The science</b><small data-t="qScienceSub">What’s established, promising, or still uncertain.</small></button>
     <button class="qcard" onclick="go('log')"><span class="ico">📝</span><b data-t="qLog">Log symptoms</b><small data-t="qLogSub">Pain, allergies, mood, sleepiness, and notes.</small></button>
     <button class="qcard" onclick="go('ask')"><span class="ico">🔎</span><b data-t="qAsk">Check something new</b><small data-t="qAskSub">Build a careful question for Google AI Mode.</small></button>
   </section>
-
-  <section class="section" id="ask">
-    <div class="section-head"><div><h2 data-t="askTitle">Before I try this…</h2><p data-t="askSub">Paste a drink, herb, vitamin, TikTok claim, or “miracle” remedy.</p></div><span class="pill good">AI + sources</span></div>
-    <div class="searchbox">
-      <label for="claim" data-t="claimLabel">What did you hear about?</label>
-      <textarea id="claim" rows="3" data-ph="claimPH" placeholder="Example: Is oregano oil good for allergies? Can I drink kombucha with my medicines?"></textarea>
-      <div class="button-row">
-        <button class="btn brand" id="aiBtn" data-t="askGoogle">Ask Google AI Mode</button>
-        <button class="btn soft" id="copyBtn" data-t="copyPrompt">Copy careful prompt</button>
-      </div>
-      <div class="tip" data-t="aiTip">We ask for evidence quality, interactions, official sources, and clear “why / why not” reasoning. If Google drops the question, the prompt is copied so you can paste it.</div>
-    </div>
-  </section>
-
+  <section class="section" id="ask"><div class="section-head"><div><h2 data-t="askTitle">Before I try this…</h2><p data-t="askSub">Paste a drink, herb, vitamin, TikTok claim, or “miracle” remedy.</p></div><span class="pill good">AI + sources</span></div><div class="searchbox"><label for="claim" data-t="claimLabel">What did you hear about?</label><textarea id="claim" rows="3" data-ph="claimPH" placeholder="Example: Is oregano oil good for allergies? Can I drink kombucha with my medicines?"></textarea><div class="button-row"><button class="btn brand" id="aiBtn" data-t="askGoogle">Ask Google AI Mode</button><button class="btn soft" id="copyBtn" data-t="copyPrompt">Copy careful prompt</button></div><div class="tip" data-t="aiTip">We ask for evidence quality, interactions, official sources, and clear “why / why not” reasoning. If Google drops the question, the prompt is copied so you can paste it.</div></div></section>
   <div class="two">
-    <section class="section" id="meds">
-      <div class="section-head"><div><h2 data-t="medTitle">Medicines</h2><p data-t="medSub">From the medication list you and your health team are reconciling.</p></div><span class="pill verify" data-t="verify">Verify current list</span></div>
-      <div class="list" id="medList"></div>
-    </section>
-
-    <section class="section" id="supplements">
-      <div class="section-head"><div><h2 data-t="suppTitle">Supplements & probiotics</h2><p data-t="suppSub">Optional ideas to discuss — not substitutes for prescribed treatment.</p></div></div>
-      <div class="list" id="suppList"></div>
-    </section>
+    <section class="section" id="meds"><div class="section-head"><div><h2 data-t="medTitle">Medicines</h2><p data-t="medSub">From the medication list you and your health team are reconciling.</p></div><span class="pill verify" data-t="verify">Verify current list</span></div><div class="list" id="medList"></div></section>
+    <section class="section" id="supplements"><div class="section-head"><div><h2 data-t="suppTitle">Supplements & probiotics</h2><p data-t="suppSub">Optional ideas to discuss — not substitutes for prescribed treatment.</p></div></div><div class="list" id="suppList"></div></section>
   </div>
-
-  <section class="section" id="science">
-    <div class="section-head"><div><h2 data-t="scienceTitle">The science — simplified</h2><p data-t="scienceSub">Evidence strength matters more than whether something is “natural” or “prescription.”</p></div></div>
-    <div class="evidence" id="evidence"></div>
-  </section>
-
-  <section class="section" id="reminders">
-    <div class="section-head"><div><h2 data-t="remTitle">Reminders</h2><p data-t="remSub">Create reminders only after the health team confirms the schedule.</p></div><span class="pill verify" data-t="confirmFirst">Confirm first</span></div>
-    <div class="reminder">
-      <input id="remName" data-ph="remPH" placeholder="e.g., morning inhaler" />
-      <input id="remTime" type="time" />
-    </div>
-    <div class="button-row">
-      <button class="btn brand" id="saveReminder" data-t="saveReminder">Save reminder</button>
-      <button class="btn soft" id="notifyBtn" data-t="enableNotify">Enable notifications</button>
-    </div>
-    <div class="tip" data-t="notifyNote">On iPhone, browser notifications work best after adding this app to the Home Screen. Background scheduled push requires a server, so this version also lets you add a reminder to Calendar.</div>
-    <div class="reminder-list" id="reminderList"></div>
-  </section>
-
-  <section class="section" id="log">
-    <div class="section-head"><div><h2 data-t="logTitle">Pain & symptom log</h2><p data-t="logSub">Saved only on this device unless you export it.</p></div></div>
-    <div class="field"><label data-t="feelLabel">How are you feeling overall today?</label><div class="scale" id="moodScale">
-      <button data-v="5">🙂</button><button data-v="4">😊</button><button data-v="3">😐</button><button data-v="2">😕</button><button data-v="1">😣</button>
-    </div></div>
-    <div class="loggrid">
-      <div class="field"><label for="pain" data-t="pain">Pain (0–10)</label><input id="pain" type="number" min="0" max="10" inputmode="numeric" /></div>
-      <div class="field"><label for="sleepy" data-t="sleepy">Sleepiness / fog (0–10)</label><input id="sleepy" type="number" min="0" max="10" inputmode="numeric" /></div>
-    </div>
-    <div class="field"><label data-t="symptoms">Symptoms today</label><div class="checks" id="symptomChecks"></div></div>
-    <div class="field"><label for="logNote" data-t="notes">Notes / what may have triggered it</label><textarea id="logNote" rows="3"></textarea></div>
-    <div class="button-row">
-      <button class="btn brand" id="saveLog" data-t="saveLog">Save today’s log</button>
-      <button class="btn soft" id="exportLog" data-t="exportLog">Export CSV</button>
-      <button class="btn danger" id="clearLogs" data-t="clearLogs">Clear logs</button>
-    </div>
-    <div class="history" id="history"></div>
-  </section>
-
-  <section class="section" id="trusted">
-    <div class="section-head"><div><h2 data-t="trustedTitle">Trusted starting points</h2><p data-t="trustedSub">Use these when a claim feels confusing or scary.</p></div></div>
-    <div class="quick">
-      <a class="qcard" href="https://medlineplus.gov/druginformation.html" target="_blank" rel="noopener"><span class="ico">🏥</span><b>MedlinePlus</b><small data-t="medline">Plain-language medicine information from the U.S. National Library of Medicine.</small></a>
-      <a class="qcard" href="https://www.nccih.nih.gov/health" target="_blank" rel="noopener"><span class="ico">🌿</span><b>NCCIH</b><small data-t="nccih">NIH evidence on supplements, herbs, and complementary approaches.</small></a>
-      <a class="qcard" href="https://www.fda.gov/drugs" target="_blank" rel="noopener"><span class="ico">🛡️</span><b>FDA</b><small data-t="fda">Drug labels, safety notices, and official U.S. regulatory information.</small></a>
-      <button class="qcard" id="installBtn"><span class="ico">📲</span><b data-t="install">Add to Home Screen</b><small data-t="installSub">Make this feel like an app on iPhone.</small></button>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-head"><div><h2 data-t="privacyTitle">Privacy</h2></div></div>
-    <div class="privacy" data-t="privacy">Symptom logs and reminders are stored in your browser on this device. They are not sent to this website or GitHub. When you choose “Ask Google AI Mode,” the question you enter is sent to Google in a new window.</div>
-  </section>
-
-  <div class="footer">
-    <div data-t="footer">Made with care for Mom • Better questions, calmer decisions.</div>
-    <div style="margin-top:6px"><a href="./beauty.html" data-t="beautyLink">Open the original beauty routine →</a></div>
-  </div>
+  <section class="section" id="science"><div class="section-head"><div><h2 data-t="scienceTitle">The science — simplified</h2><p data-t="scienceSub">Evidence strength matters more than whether something is “natural” or “prescription.”</p></div></div><div class="evidence" id="evidence"></div></section>
+  <section class="section" id="reminders"><div class="section-head"><div><h2 data-t="remTitle">Reminders</h2><p data-t="remSub">Create reminders only after the health team confirms the schedule.</p></div><span class="pill verify" data-t="confirmFirst">Confirm first</span></div><div class="reminder"><input id="remName" data-ph="remPH" placeholder="e.g., morning inhaler" /><input id="remTime" type="time" /></div><div class="button-row"><button class="btn brand" id="saveReminder" data-t="saveReminder">Save reminder</button><button class="btn soft" id="notifyBtn" data-t="enableNotify">Enable notifications</button></div><div class="tip" data-t="notifyNote">On iPhone, browser notifications work best after adding this app to the Home Screen. Background scheduled push requires a server, so this version also lets you add a reminder to Calendar.</div><div class="reminder-list" id="reminderList"></div></section>
+  <section class="section" id="log"><div class="section-head"><div><h2 data-t="logTitle">Pain & symptom log</h2><p data-t="logSub">Saved only on this device unless you export it.</p></div></div><div class="field"><label data-t="feelLabel">How are you feeling overall today?</label><div class="scale" id="moodScale"><button data-v="5">🙂</button><button data-v="4">😊</button><button data-v="3">😐</button><button data-v="2">😕</button><button data-v="1">😣</button></div></div><div class="loggrid"><div class="field"><label for="pain" data-t="pain">Pain (0–10)</label><input id="pain" type="number" min="0" max="10" inputmode="numeric" /></div><div class="field"><label for="sleepy" data-t="sleepy">Sleepiness / fog (0–10)</label><input id="sleepy" type="number" min="0" max="10" inputmode="numeric" /></div></div><div class="field"><label data-t="symptoms">Symptoms today</label><div class="checks" id="symptomChecks"></div></div><div class="field"><label for="logNote" data-t="notes">Notes / what may have triggered it</label><textarea id="logNote" rows="3"></textarea></div><div class="button-row"><button class="btn brand" id="saveLog" data-t="saveLog">Save today’s log</button><button class="btn soft" id="exportLog" data-t="exportLog">Export CSV</button><button class="btn danger" id="clearLogs" data-t="clearLogs">Clear logs</button></div><div class="history" id="history"></div></section>
+  <section class="section" id="trusted"><div class="section-head"><div><h2 data-t="trustedTitle">Trusted starting points</h2><p data-t="trustedSub">Use these when a claim feels confusing or scary.</p></div></div><div class="quick"><a class="qcard" href="https://medlineplus.gov/druginformation.html" target="_blank" rel="noopener"><span class="ico">🏥</span><b>MedlinePlus</b><small data-t="medline">Plain-language medicine information from the U.S. National Library of Medicine.</small></a><a class="qcard" href="https://www.nccih.nih.gov/health" target="_blank" rel="noopener"><span class="ico">🌿</span><b>NCCIH</b><small data-t="nccih">NIH evidence on supplements, herbs, and complementary approaches.</small></a><a class="qcard" href="https://www.fda.gov/drugs" target="_blank" rel="noopener"><span class="ico">🛡️</span><b>FDA</b><small data-t="fda">Drug labels, safety notices, and official U.S. regulatory information.</small></a><button class="qcard" id="installBtn"><span class="ico">📲</span><b data-t="install">Add to Home Screen</b><small data-t="installSub">Make this feel like an app on iPhone.</small></button></div></section>
+  <section class="section"><div class="section-head"><div><h2 data-t="privacyTitle">Privacy</h2></div></div><div class="privacy" data-t="privacy">Symptom logs and reminders are stored in your browser on this device. They are not sent to this website or GitHub. When you choose “Ask Google AI Mode,” the question you enter is sent to Google in a new window.</div></section>
+  <div class="footer"><div data-t="footer">Made with care for Mom • Better questions, calmer decisions.</div><div style="margin-top:6px"><a href="./beauty.html" data-t="beautyLink">Open the original beauty routine →</a></div></div>
 </div>
-
-<nav class="nav"><div class="nav-in">
-  <a href="#ask"><span>🔎</span><i data-t="navCheck">Check</i></a>
-  <a href="#meds"><span>💊</span><i data-t="navMeds">Meds</i></a>
-  <a href="#science"><span>📖</span><i data-t="navScience">Science</i></a>
-  <a href="#log"><span>📝</span><i data-t="navLog">Log</i></a>
-  <a href="#reminders"><span>🔔</span><i data-t="navRem">Remind</i></a>
-</div></nav>
-
-<div class="modal" id="installModal" role="dialog" aria-modal="true">
-  <div class="sheet">
-    <h3 data-t="installTitle">Put Health Ally on the iPhone Home Screen</h3>
-    <div class="install-steps">
-      <p data-t="install1"><b>1.</b> Open this page in Safari.</p>
-      <p data-t="install2"><b>2.</b> Tap the Share button.</p>
-      <p data-t="install3"><b>3.</b> Choose “Add to Home Screen.”</p>
-      <p data-t="install4"><b>4.</b> Open it from the new icon. Then use “Enable notifications” if desired.</p>
-    </div>
-    <div class="button-row"><button class="btn brand" onclick="closeInstall()" data-t="done">Done</button></div>
-  </div>
-</div>
-
-<script src="./data.js"></script>
-<script src="./app.js"></script>
+<nav class="nav"><div class="nav-in"><a href="#ask"><span>🔎</span><i data-t="navCheck">Check</i></a><a href="#meds"><span>💊</span><i data-t="navMeds">Meds</i></a><a href="#science"><span>📖</span><i data-t="navScience">Science</i></a><a href="#log"><span>📝</span><i data-t="navLog">Log</i></a><a href="#reminders"><span>🔔</span><i data-t="navRem">Remind</i></a></div></nav>
+<div class="modal" id="installModal" role="dialog" aria-modal="true"><div class="sheet"><h3 data-t="installTitle">Put Health Ally on the iPhone Home Screen</h3><div class="install-steps"><p data-t="install1"><b>1.</b> Open this page in Safari.</p><p data-t="install2"><b>2.</b> Tap the Share button.</p><p data-t="install3"><b>3.</b> Choose “Add to Home Screen.”</p><p data-t="install4"><b>4.</b> Open it from the new icon. Then use “Enable notifications” if desired.</p></div><div class="button-row"><button class="btn brand" onclick="closeInstall()" data-t="done">Done</button></div></div></div>
+<script src="./data.js"></script><script src="./ui.js"></script><script src="./logs.js"></script><script src="./reminders.js"></script><script src="./boot.js"></script>
 </body>
 </html>
