@@ -1,4 +1,4 @@
-let lang = store.getItem("healthAllyLang") || "en";
+let lang = store.getItem("healthAllyLang") || "es";
 let mood = null;
 
 function t(k){return I18N[lang][k] || k}
@@ -8,12 +8,14 @@ function applyLang(){
  document.querySelectorAll("[data-ph]").forEach(el=>el.placeholder=t(el.dataset.ph));
  document.getElementById("langBtn").textContent=lang==="en"?"ES":"EN";
  renderMeds(); renderSupps(); renderEvidence(); renderSymptoms(); renderHistory(); renderReminders();
+ if(typeof renderFastingUI==="function"){const m=document.getElementById("mealIdea");if(m)m.textContent="";renderFastingUI();}
 }
 function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth",block:"start"})}
 document.getElementById("langBtn").onclick=()=>{lang=lang==="en"?"es":"en";store.setItem("healthAllyLang",lang);applyLang()};
 
 function statusLabel(s){
  if(s==="notstarted") return lang==="en"?"Prescribed • not started":"Recetada • no iniciada";
+ if(s==="historical") return lang==="en"?"Historical • verify":"Histórico • confirmar";
  return lang==="en"?"Verify with team":"Confirmar con equipo";
 }
 function renderMeds(){

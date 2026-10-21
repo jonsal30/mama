@@ -3,4 +3,5 @@ function closeInstall(){document.getElementById("installModal").classList.remove
 document.getElementById("installModal").onclick=e=>{if(e.target.id==="installModal")closeInstall()};
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
+if(typeof initFasting==="function") initFasting();
 applyLang();

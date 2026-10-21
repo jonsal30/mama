@@ -30,3 +30,19 @@ The app can request browser notifications and notify while active. True server-s
 - `sw.js` — offline cache shell
 - `app-icon.svg` — install icon
 - `beauty.html` — preserved original beauty-routine page
+
+## Mi Ventana / My Eating Window
+Health Ally now includes a Spanish-first fasting and diabetes-support module designed for gradual, conservative use:
+- 7-day baseline logging before 12:12.
+- 12:12 -> 14:10 -> optional 16:8 progression; each longer stage unlocks only after 7 stable completions of the prior stage.
+- 24+ hour fasting is intentionally not offered without a specific clinician plan.
+- Fasting timer explicitly tells Mom when she can eat and reminds her that extending the fast is unnecessary.
+- Daily medication acknowledgements for the currently documented core regimen, with short-course/historical medications kept separate pending reconciliation.
+- Context-aware glucose, blood pressure, weight, ketone, and symptom logging.
+- Safety overrides prioritize low glucose and concerning cardiopulmonary/neurologic symptoms over the timer.
+- Food suggestions use a simple plate model and familiar meal ideas rather than restrictive "diet food."
+- Metabolic-phase education is approximate; the app does not claim an exact human autophagy activation time.
+- App notifications work when supported by the installed PWA. A one-tap Calendar alarm is included because iPhone can deliver it reliably when the web app is closed without requiring a push backend.
+
+### Data boundary
+Mi Ventana data remains local to the browser in this static GitHub Pages build. Export creates a JSON file for backup or clinician review. There is currently no automatic Google Drive write from the PWA; adding that safely requires an authenticated endpoint or an Apps Script/Web API bridge.

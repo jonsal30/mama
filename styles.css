@@ -94,3 +94,23 @@
       body{font-size:17px}.quick{grid-template-columns:repeat(4,1fr)} .two{display:grid;grid-template-columns:1.12fr .88fr;gap:18px}
       .two .section{margin-top:18px}.checks{grid-template-columns:repeat(3,1fr)}
     }
+/* Mi Ventana / My Eating Window */
+.fasting-section{border:2px solid #cfe8ea;background:linear-gradient(180deg,#ffffff 0,#f8fcfd 100%)}
+.fast-rule{background:#e9f8f1;border:1px solid #bfe7d2;color:#245f46;border-radius:16px;padding:12px 14px;font-size:14px;margin-bottom:12px}
+.stage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.stage-btn{border:1px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);padding:12px 8px;text-align:center;min-height:74px}
+.stage-btn b,.stage-btn small{display:block}.stage-btn small{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.2}.stage-btn.active{border-color:#168da0;background:#e8f8f8;box-shadow:0 0 0 2px rgba(22,141,160,.12)}.stage-btn.locked{opacity:.52;background:#f3f5f6}
+.fast-dashboard,.fast-columns{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
+.timer-card,.phase-card,.fast-panel{border:1px solid var(--line);border-radius:20px;background:#fff;padding:16px}
+.timer-card{background:linear-gradient(135deg,#e9f9f6,#edf3ff)}
+.timer-card small,.phase-card small{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#527284}
+.timer-value{font-size:38px;line-height:1;font-weight:900;letter-spacing:-.04em;margin:9px 0;color:#143d56}.timer-status{font-size:14px;color:#3f6275;min-height:42px}
+.phase-card{background:linear-gradient(135deg,#f5f1ff,#eef8ff)}.phase-card>b{display:block;font-size:20px;margin:9px 0 4px}.phase-card p{font-size:14px;color:#456879;margin:0}
+.autophagy-note{margin-top:11px;padding:10px;border-radius:13px;background:#fff;border:1px solid #ddd9f2;color:#5b5778;font-size:12px}
+.fast-safety{display:flex;gap:7px;flex-direction:column;border-radius:16px;padding:12px 14px;margin-top:12px;font-size:13px;border:1px solid #cfe3d8;background:#edf9f2;color:#275c43}.fast-safety.warn{background:#fff6df;border-color:#edd79e;color:#71530c}.fast-safety.stop,.fast-safety.urgent{background:#fff0f0;border-color:#efc5c8;color:#8d2f38}.fast-safety b{font-size:15px}
+.fast-panel h3{margin:0;font-size:19px}.fast-panel h4{margin:16px 0 6px}.muted{font-size:13px;color:var(--muted);margin:3px 0 10px}.bp-row{display:grid;grid-template-columns:1fr 16px 1fr;align-items:center;gap:4px}.bp-row span{text-align:center;font-weight:900;color:var(--muted)}
+.med-summary{display:inline-block;background:#eef7ff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800;color:#315d7a;margin:4px 0 9px}.med-ack-list{display:grid;gap:9px}.med-ack{border:1px solid var(--line);border-radius:15px;padding:11px;background:#fbfdfe}.med-ack.done{background:#eff9f4;border-color:#c7e8d7}.med-ack b{display:block}.med-ack small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.ack-buttons{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.mini{border:1px solid #cfe0e7;background:white;color:#345d72;border-radius:999px;padding:7px 9px;font-size:11px;font-weight:800}.mini.active{background:#dff5e9;border-color:#7ec19b;color:#245c3f}
+.food-panel{background:linear-gradient(135deg,#f2fbf5,#fffdf5)}.plate{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:10px 0}.plate span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#dff3e7;font-weight:900}.plate b{font-size:13px}.meal-idea{font-size:19px;font-weight:800;line-height:1.3;border-left:4px solid #52a775;padding:8px 12px;margin:10px 0;background:#fff;border-radius:0 12px 12px 0}
+.clinician-lock{margin-top:12px;background:#f4f5f6;border:1px solid #d8dfe3;border-radius:15px;padding:11px;color:#536b78}.clinician-lock b,.clinician-lock span{display:block}.clinician-lock span{font-size:12px;margin-top:3px}
+@media (min-width:740px){.fast-dashboard,.fast-columns{grid-template-columns:1fr 1fr}.stage-grid{gap:10px}}
+@media (max-width:520px){.stage-grid{grid-template-columns:repeat(2,1fr)}.timer-value{font-size:34px}.fast-panel{padding:14px}.ack-buttons .mini{flex:1 1 44%}}
