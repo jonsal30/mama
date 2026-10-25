@@ -4,4 +4,5 @@ document.getElementById("installModal").onclick=e=>{if(e.target.id==="installMod
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
 if(typeof initFasting==="function") initFasting();
+if(typeof initBackend==="function") initBackend();
 applyLang();

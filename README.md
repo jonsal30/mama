@@ -46,3 +46,19 @@ Health Ally now includes a Spanish-first fasting and diabetes-support module des
 
 ### Data boundary
 Mi Ventana data remains local to the browser in this static GitHub Pages build. Export creates a JSON file for backup or clinician review. There is currently no automatic Google Drive write from the PWA; adding that safely requires an authenticated endpoint or an Apps Script/Web API bridge.
+
+## Mi Ventana backend (Web Push + sync queue)
+
+Health Ally now has an optional Cloudflare Worker backend in `backend/worker`.
+
+- **Web Push:** stores a single paired iPhone push subscription and schedules fasting-end reminders.
+- **Persistent acknowledgement:** fasting-end alerts can repeat until the user acknowledges them in Health Ally.
+- **D1 queue:** health readings, medication acknowledgements, fast start/end events, and push acknowledgements are retained server-side for resilient sync.
+- **Google Sheet bridge:** queued events are designed to sync to the existing longitudinal `Mom Health & Sleep Symptom Log`. The bridge URL is intentionally configurable and can remain blank without losing queued events.
+- **Secrets:** VAPID private keys, the one-time pairing code, and bridge secrets live in Cloudflare secrets, never in this repository.
+
+### iPhone setup
+On iPhone/iPad, install Health Ally to the Home Screen, open it from the Home Screen icon, tap **Activar avisos fuertes**, enter the one-time pairing code, and allow notifications. After successful pairing, the backend closes pairing automatically.
+
+### Safety behavior
+Push reminders never tell the user to change medication doses. A completed fasting target explicitly says the user may eat and does not reward extending the fast. The fasting safety rules in the PWA override the timer for concerning glucose or symptoms.

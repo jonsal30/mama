@@ -114,3 +114,7 @@
 .clinician-lock{margin-top:12px;background:#f4f5f6;border:1px solid #d8dfe3;border-radius:15px;padding:11px;color:#536b78}.clinician-lock b,.clinician-lock span{display:block}.clinician-lock span{font-size:12px;margin-top:3px}
 @media (min-width:740px){.fast-dashboard,.fast-columns{grid-template-columns:1fr 1fr}.stage-grid{gap:10px}}
 @media (max-width:520px){.stage-grid{grid-template-columns:repeat(2,1fr)}.timer-value{font-size:34px}.fast-panel{padding:14px}.ack-buttons .mini{flex:1 1 44%}}
+.backend-status{margin:8px 0 12px;padding:11px 12px;border-radius:14px;font-size:14px;font-weight:800;border:1px solid var(--line)}
+.backend-status.good{background:#e8f7ef;color:#236e4c;border-color:#bfe3cf}.backend-status.warn{background:#fff7e7;color:#7a5908;border-color:#ead79e}
+.push-ack{margin:14px 0;padding:18px;border-radius:20px;background:linear-gradient(135deg,#e8f8f4,#edf3ff);border:2px solid #58aeb8;box-shadow:var(--shadow)}
+.push-ack b{display:block;font-size:23px;margin-bottom:5px}.push-ack span{display:block;color:#315971;font-size:15px}.push-ack .btn{min-height:48px;font-size:16px}

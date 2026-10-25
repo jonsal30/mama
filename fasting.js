@@ -91,6 +91,8 @@ function startFast(){
  const start=new Date();
  s.active=true;s.start=start.toISOString();s.targetEnd=new Date(start.getTime()+hours*3600000).toISOString();s.lastSafety="ok";
  saveFastState(s);renderFastingUI();
+ if(typeof haLog==="function")haLog("fast_started",{stage:s.stage,start:s.start,targetEnd:s.targetEnd});
+ if(typeof haScheduleFastEnd==="function")haScheduleFastEnd(s);
  notifyFriendly(lang==="es"?"Tu ayuno comenzó":"Your fast started",lang==="es"?`Meta de hoy: ${hours} horas. Puedes tomar agua. No necesitas extenderlo.`:`Today's goal: ${hours} hours. Water is okay. You do not need to extend it.`);
 }
 function endFast(reason="manual"){
@@ -98,8 +100,12 @@ function endFast(reason="manual"){
  const elapsed=hoursSince(s.start),target=fastingStages[s.stage]?.hours||0;
  const completed=elapsed>=target-0.02;
  const hist=fastHistory();
- hist.unshift({ts:new Date().toISOString(),start:s.start,end:new Date().toISOString(),stage:s.stage,targetHours:target,elapsedHours:+elapsed.toFixed(2),completed,reason,safety:s.lastSafety||"ok"});
+ const endedAt=new Date().toISOString();
+ const ended={ts:endedAt,start:s.start,end:endedAt,stage:s.stage,targetHours:target,elapsedHours:+elapsed.toFixed(2),completed,reason,safety:s.lastSafety||"ok"};
+ hist.unshift(ended);
  saveFastHistory(hist);
+ if(typeof haLog==="function")haLog("fast_ended",{stage:s.stage,hours:ended.elapsedHours,completed,reason,safety:ended.safety,start:ended.start,end:ended.end});
+ const job=store.getItem("healthAllyCurrentFastJob");if(job&&typeof haAck==="function")haAck(job,completed?"completed":"ended_early");
  s.active=false;s.start=null;s.targetEnd=null;saveFastState(s);renderFastingUI();
 }
 function setStage(stage){
@@ -132,6 +138,7 @@ function saveHealthCheck(){
  const s=fastState();if(["urgent","stop","warn"].includes(safety.level))s.lastSafety=safety.level;saveFastState(s);
  if((safety.level==="urgent"||safety.level==="stop")&&s.active)endFast(safety.level);
  renderFastingUI();
+ if(typeof haLog==="function")haLog("health_reading",{glucose:entry.glucose,glucoseContext:entry.context,bpSys:entry.sys,bpDia:entry.dia,weight:entry.weight,ketones:entry.ketones,symptoms:entry.symptoms,note:entry.note,safety:entry.safety},entry.ts);
  showSafety(safety);
 }
 
@@ -143,7 +150,8 @@ function showSafety(safety){
 }
 
 function setMedAck(id,status){
- const all=medAcks(),day=todayKey();if(!all[day])all[day]={};all[day][id]={status,ts:new Date().toISOString()};saveMedAcks(all);renderMedAcks();
+ const all=medAcks(),day=todayKey();if(!all[day])all[day]={};const ts=new Date().toISOString();all[day][id]={status,ts};saveMedAcks(all);renderMedAcks();
+ const med=dailyMeds.find(m=>m.id===id);if(typeof haLog==="function")haLog("med_ack",{medId:id,name:med?med.name:id,status},ts);
 }
 function renderMedAcks(){
  const box=document.getElementById("medAckList");if(!box)return;
@@ -238,7 +246,7 @@ function initFasting(){
  document.getElementById("fastEnd").onclick=()=>endFast("manual");
  document.getElementById("saveHealthCheck").onclick=saveHealthCheck;
  document.getElementById("mealRefresh").onclick=randomMeal;
- document.getElementById("fastNotify").onclick=enableFastingNotifications;
+ document.getElementById("fastNotify").onclick=typeof enableHealthAllyPush==="function"?enableHealthAllyPush:enableFastingNotifications;
  document.getElementById("fastCalendar").onclick=calendarFastEnd;
  document.getElementById("fastExport").onclick=exportHealthAllyData;
  setInterval(()=>renderFastingUI(),30000);
