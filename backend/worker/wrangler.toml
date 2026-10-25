@@ -6,7 +6,7 @@ compatibility_date = "2026-10-21"
 ALLOWED_ORIGIN = "https://jonsal30.github.io"
 VAPID_SUBJECT = "mailto:john@jaravon.com"
 VAPID_SERVER_PUBLIC_KEY = "BDDYhXUfboghspiGOjlFQ8W9NtNEkUaksT83xMFHJoIxE_L5DLkp-geukdtCBe24x4RRYWSDe4DXkB_-p2vaIyA"
-SHEET_SYNC_URL = ""
+SHEET_SYNC_URL = "https://script.google.com/macros/s/AKfycbw49tjUL0RZOsQ9G_CFh-THDPSJwufRmnrkoPx3BjcFVee0djgZtxDP6FhNdXEnNpi6/exec"
 
 [[d1_databases]]
 binding = "DB"
